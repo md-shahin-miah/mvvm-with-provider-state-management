@@ -103,28 +103,32 @@ class StateLoginScreen extends State<LoginScreen> {
                   },
                 ),
               ),
-              RoundedButton(
-                  btName: "Log in",
-                  onPress: () {
-                    if (_textEditingControllerEmail.text.isEmpty) {
-                      Utils.showFlushBar("Email field is empty ", context);
-                    } else if (_textEditingControllerPassword.text.isEmpty) {
-                      Utils.showFlushBar("Password field is empty ", context);
-                    } else if (_textEditingControllerPassword.text.length < 6) {
-                      Utils.showFlushBar(
-                          "Password length is less than 6 ", context);
-                    } else {
-                      Map data = {
-                        "email": _textEditingControllerEmail.text.toString(),
-                        "password":
-                            _textEditingControllerPassword.text.toString()
-                      };
+              Consumer<AuthViewModel>(builder: (context,vAuthProvider,child){
+                return RoundedButton(
+                  loading: vAuthProvider.isLoading,
+                    btName: "Log in",
+                    onPress: () {
 
-                      authViewModel.loginData(data,context);
-                    }
+                      if (_textEditingControllerEmail.text.isEmpty) {
+                        Utils.showFlushBar("Email field is empty ", context);
+                      } else if (_textEditingControllerPassword.text.isEmpty) {
+                        Utils.showFlushBar("Password field is empty ", context);
+                      } else if (_textEditingControllerPassword.text.length < 6) {
+                        Utils.showFlushBar(
+                            "Password length is less than 6 ", context);
+                      } else {
+                        Map data = {
+                          "email": _textEditingControllerEmail.text.toString(),
+                          "password":
+                          _textEditingControllerPassword.text.toString()
+                        };
 
-                    print("clicked ronded button");
-                  })
+                        authViewModel.loginData(data,context);
+                      }
+
+                      print("clicked ronded button");
+                    });
+              },)
             ],
           ),
         ),

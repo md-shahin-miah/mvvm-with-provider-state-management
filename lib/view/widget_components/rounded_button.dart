@@ -19,10 +19,18 @@ class RoundedButton extends StatelessWidget {
       child: InkWell(
         onTap: onPress,
         child: Container(
+          padding: const EdgeInsets.all(4),
           height: 40,
           width: 200,
           color: Colors.orange,
-          child: !loading?Center(child: Text(btName,style: const TextStyle(color: Colors.white),)):const CircularProgressIndicator(color: Colors.red),
+          child: !loading
+              ? Center(
+                  child: Text(
+                  btName,
+                  style: const TextStyle(color: Colors.white),
+                ))
+              : const Center(
+                  child: CircularProgressIndicator(color: Colors.red)),
         ),
       ),
     );
