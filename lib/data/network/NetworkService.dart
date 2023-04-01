@@ -5,7 +5,7 @@ import 'package:provider_mvvm_state_management/data/app_exception.dart';
 import 'package:provider_mvvm_state_management/data/network/BaseNetworkService.dart';
 import 'package:http/http.dart' as http;
 
-class NetworkServic extends BaseNetworkService {
+class NetworkService extends BaseNetworkService {
   @override
   Future getApiResponse(String url) async {
     dynamic responseJson;

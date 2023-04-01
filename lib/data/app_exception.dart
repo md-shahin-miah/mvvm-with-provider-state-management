@@ -6,7 +6,7 @@ class AppException implements Exception {
 
   @override
   String toString() {
-    return "$_message$_prefix";
+    return "$_message : $_prefix";
   }
 }
 
@@ -18,12 +18,11 @@ class BadRequestException extends AppException {
   BadRequestException([String? message]) : super([message, "Invalid Request"]);
 }
 
-class UnAuthorizedException extends AppException{
-  UnAuthorizedException([String? message]):super(message,"UnAuthorised request");
+class UnAuthorizedException extends AppException {
+  UnAuthorizedException([String? message])
+      : super(message, "UnAuthorised request");
 }
 
 class InValidInputException extends AppException {
-
-
-  InValidInputException([String? message]):super(message,"Invalid Input!");
+  InValidInputException([String? message]) : super(message, "Invalid Input!");
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider_mvvm_state_management/utils/utils.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -11,8 +12,16 @@ class MyHomePage extends StatefulWidget {
 class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("This is Home")),
+    return  Scaffold(
+      body: Center(
+          child: TextButton(
+        child: const Text("This is Home"),
+        onPressed: () {
+
+          Utils.showToast("Toast testing ");
+          Utils.showFlushBar("Flushbar testing ",context);
+        },
+      )),
     );
   }
 }
